@@ -230,5 +230,6 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-# Ideas Word Document
+# Word Documents
 todo list.docx
+Requirements.docx
