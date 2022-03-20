@@ -17,6 +17,9 @@ Display user information.
 - To install project depencencies:
   `npm install | npm i`
 
+  - command to run .net app and build.
+  - command for spinning up db and updating the database.
+
 ---
 
 `set ASPNETCORE_ENVIRONMENT="Development"
@@ -35,7 +38,5 @@ to verify that the container is running:
 
 #### Bonus List:
 
-- Allow filters on additional fields.
 - Add tests.
-- Docerize db
 - Css animations.
