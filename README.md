@@ -19,7 +19,12 @@ Display user information.
 
 ---
 
-`set ASPNETCORE_ENVIRONMENT="Development"`
+`set ASPNETCORE_ENVIRONMENT="Development"
+
+if you have docker installed the database can be contianerized by running the following command:
+`docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=***" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest`
+to verify that the container is running:
+`docker ps`
 
 ### TODO List:
 
