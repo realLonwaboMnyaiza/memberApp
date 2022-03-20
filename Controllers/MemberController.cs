@@ -23,9 +23,9 @@ namespace app.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetMember(int id)
+        public async Task<IActionResult> GetMember(int id)
         {
-            var member = _context.Member.Find(id);
+            var member = await _context.Member.FindAsync(id);
             if (member is null)
             {
                 return NotFound();
