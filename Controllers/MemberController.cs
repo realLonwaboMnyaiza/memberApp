@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace app.Controllers
 {
     [ApiController]
+    [Route("/api/v1/members/")]
     public class MemberController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -21,11 +22,25 @@ namespace app.Controllers
             _log = log;
         }
 
-        [HttpGet("/api/v1/members")]
-        public IEnumerable<MemberDto> GetMembers()
+        [HttpGet("{id}")]
+        public IActionResult GetMember(int id)
         {
-            var member = _context.Member;
-            return _mapper.Map<List<MemberDto>>(member);
+            var member = _context.Member.Find(id);
+            if (member is null)
+            {
+                return NotFound();
+            }
+
+            var memberDto =  _mapper.Map<MemberDto>(member);
+            return Ok(memberDto);
+        }
+
+        [HttpGet]
+        public IActionResult GetMembers()
+        {
+            var members = _context.Member;
+            var membersDto = _mapper.Map<List<MemberDto>>(members);
+            return Ok(membersDto); 
         }
     }
 }
