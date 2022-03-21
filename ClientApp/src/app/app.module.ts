@@ -9,8 +9,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { MemberComponent } from './member/member.component';
+import { MemberCardComponent } from './member-card/member-card.component';
 import { MemberService } from 'src/service/member.service';
+import { MemberDetailsComponent } from './member-details/member-details.component';
+import { MembersComponent } from './members/members.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MemberService } from 'src/service/member.service';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    MemberComponent
+    MemberCardComponent,
+    MemberDetailsComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,7 +31,7 @@ import { MemberService } from 'src/service/member.service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'members', component: MemberComponent },
+      { path: 'members', component: MemberCardComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
