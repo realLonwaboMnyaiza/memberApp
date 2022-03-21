@@ -10,14 +10,14 @@ namespace app.Controllers
     [Route("/api/v1/members/")]
     public class MemberController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IMemberRepository _repository;
         private readonly IMapper _mapper;
         private readonly ILogger<MemberController> _log;
-        public MemberController(AppDbContext context,
+        public MemberController(IMemberRepository memberRepository,
                                 IMapper mapper,
                                 ILogger<MemberController> log)
         {
-            _context = context;
+            _repository = memberRepository;
             _mapper = mapper;
             _log = log;
         }
@@ -25,22 +25,43 @@ namespace app.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMember(int id)
         {
-            var member = await _context.Member.FindAsync(id);
-            if (member is null)
+            try
             {
-                return NotFound();
-            }
+                var member = await _repository.GetMember(id);
+                if (member is null)
+                {
+                    return NotFound();
+                }
 
-            var memberDto =  _mapper.Map<MemberDto>(member);
-            return Ok(memberDto);
+                var memberDto = _mapper.Map<MemberDto>(member);
+                return Ok(memberDto);
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet]
         public IActionResult GetMembers()
         {
-            var members = _context.Member;
-            var membersDto = _mapper.Map<List<MemberDto>>(members);
-            return Ok(membersDto); 
+            try
+            {
+                var members = _repository.GetMembers();
+                var membersDto = _mapper.Map<List<MemberDto>>(members);
+                return Ok(membersDto);
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        private void Log(string message)
+        {
+            _log.LogInformation(message);
         }
     }
 }
