@@ -10,8 +10,11 @@ export class MemberService {
 
   getMembers() {
     // todo: create an .env file to store the base url for endpoints.
-    const endpoint = '/api/v1/members';
+    // const endpoint = '/api/v1/members';
     // return this.http.get(endpoint);
+    // todo: getting cors issues
+    // -> dummy the data out 
+    // -> implement rendering of mock members in fe then go fix cors issues when fe can display data.
     const members = [
       {
         "first_name": "Emma", 
