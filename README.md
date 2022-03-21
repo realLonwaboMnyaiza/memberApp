@@ -17,12 +17,17 @@ Display user information.
 - To install project depencencies:
   `npm install | npm i`
 
-  - command to run .net app and build.
-  - command for spinning up db and updating the database.
+- To update database and run migrations:
+  `dotnet ef database update`
 
----
+- Build and run .Net API.
+  `dotnet run`
 
-`set ASPNETCORE_ENVIRONMENT="Development"
+- Build, run and watch for changes to build:
+  `dotnet watch run`
+
+- Set up environment variables (win | mac):
+  `set | export ASPNETCORE_ENVIRONMENT="Development"`
 
 if you have docker installed the database can be contianerized by running the following command:
 `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=***" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest`
@@ -34,7 +39,6 @@ to verify that the container is running:
 - List, View Details of data items.
 - Should be able to filter the data.
 - Make sure site is responsive.
-- Add sass/less as a pre-compiler for styling -> can use gulp.
 
 #### Bonus List:
 
