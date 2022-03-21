@@ -30,7 +30,13 @@ Display user information.
   `set | export ASPNETCORE_ENVIRONMENT="Development"`
 
 if you have docker installed the database can be contianerized by running the following command:
+<br>
 `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=***" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest`
+
+<!-- todo: use secret manager. -->
+
+**replace password placeholders with value in .net core config file.**
+<br>
 to verify that the container is running:
 `docker ps`
 
