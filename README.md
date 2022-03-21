@@ -36,11 +36,13 @@ to verify that the container is running:
 
 ### TODO List:
 
-- List, View Details of data items.
-- Should be able to filter the data.
-- Make sure site is responsive.
+- details view of members.
+- should be able to filter the data.
+- link fe to api.
 
 #### Bonus List:
 
-- Add tests.
-- Css animations.
+- add front end tests.
+- finish api test for get member.
+- create a member details page (FE).
+- backend filtering and pagination.
