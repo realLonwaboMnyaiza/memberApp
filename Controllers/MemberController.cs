@@ -39,7 +39,7 @@ namespace app.Controllers
             catch (Exception ex)
             {
                 Log(ex.Message);
-                return BadRequest(ex.Message);
+                return StatusCode(500);
             }
         }
 
@@ -55,7 +55,7 @@ namespace app.Controllers
             catch (Exception ex)
             {
                 Log(ex.Message);
-                return BadRequest(ex.Message);
+                return StatusCode(500);
             }
         }
 
