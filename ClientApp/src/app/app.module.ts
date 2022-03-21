@@ -31,7 +31,7 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'members', component: MemberCardComponent },
+      { path: 'members', component: MembersComponent},
       { path: 'about', component: AboutComponent},
       { path: 'fetch-data', component: FetchDataComponent },
     ])

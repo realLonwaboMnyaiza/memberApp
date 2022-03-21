@@ -17,15 +17,35 @@ export class MemberService {
     // -> implement rendering of mock members in fe then go fix cors issues when fe can display data.
     const members = [
       {
-        "first_name": "Emma", 
-        "last_name": "Dunham", 
-        "date_of_birth": "31 Mar 1980", 
-        "email_address": "emma.dunham@vtgrafix.gov", 
+        "firstName": "Emma", 
+        "lastName": "Dunham", 
+        "dateOfBirth": "31 Mar 1980", 
+        "emailAddress": "emma.dunham@vtgrafix.gov", 
         "address": "76 Sherman Road", 
         "city": "Hastings", 
         "country": "Aruba", 
-        "zip_code": "06830"
-      }
+        "zipCode": "06830"
+      },
+      { 
+        "firstName": "Ivan", 
+        "lastName": "Risley", 
+        "dateOfBirth": "09 Aug 1958", 
+        "emailAddress": "ivan.risley@nitrosystems.co", 
+        "address": "18 Hartswood Road", 
+        "city": "Stanford", 
+        "country": "Algeria", 
+        "zipCode": "04346" 
+      }, 
+      { 
+        "firstName": "Rikki", 
+        "lastName": "Paquette", 
+        "dateOfBirth": "18 Sep 1963", 
+        "emailAddress": "rikki.paquette@anaplex.xyz", 
+        "address": "56 Canal Street", 
+        "city": "London", 
+        "country": "Iceland", 
+        "zipCode": "16935" 
+      }, 
     ];
     return members;
   }
