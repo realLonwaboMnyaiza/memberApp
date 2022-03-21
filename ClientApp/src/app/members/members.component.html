@@ -2,6 +2,8 @@
 <!-- todo: when a single member card is clicked display the member details page. -->
 <!-- todo: search box to filter members. -->
 
+<input class="search" type="text" placeholder="search member..." (keyup)="filter(searchTerm.value)" #searchTerm />
+<hr>
 <div *ngIf="members" class="container">
     <member-card *ngFor="let member of members" [member]="member"></member-card>
 </div>

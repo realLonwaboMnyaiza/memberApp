@@ -10,9 +10,13 @@ export class MembersComponent implements OnInit {
   // todo: use member model.
   public members : any;
   
-  constructor(private memberService: MemberService) { }
+  constructor(private memberService: MemberService) {   }
 
   ngOnInit(): void {
     this.members = this.memberService.getMembers();
+  }
+
+  filter(searchTerm: string) {
+    console.log(searchTerm);
   }
 }
