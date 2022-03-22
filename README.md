@@ -45,7 +45,6 @@ to verify that the container is running:
 ### TODO List:
 
 - details view of members.
-- should be able to filter the data.
 - link fe to api.
 
 #### Bonus List:
