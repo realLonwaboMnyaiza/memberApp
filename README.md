@@ -6,6 +6,8 @@
 - angular and typescript
 - sql server and ef core code first
 
+- site js and css is minified by the ng build process.
+
 ---
 
 ## Purpose
