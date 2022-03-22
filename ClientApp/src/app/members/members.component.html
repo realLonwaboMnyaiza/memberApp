@@ -4,8 +4,8 @@
 
 <input class="search" type="text" placeholder="search member..." (keyup)="filter(searchTerm.value)" #searchTerm />
 <hr>
-<div *ngIf="members" class="container">
-    <member-card *ngFor="let member of members" [member]="member"></member-card>
+<div *ngIf="membersFilter" class="container">
+    <member-card *ngFor="let member of membersFilter" [member]="member"></member-card>
 </div>
 
-<p *ngIf="members == false">There are no members to display!</p>
+<p *ngIf="!membersFilter">There are no members to display!</p>

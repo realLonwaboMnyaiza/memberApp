@@ -17,6 +17,7 @@ export class MemberService {
     // -> implement rendering of mock members in fe then go fix cors issues when fe can display data.
     const members = [
       {
+        "id": 1,
         "firstName": "Emma", 
         "lastName": "Dunham", 
         "dateOfBirth": "31 Mar 1980", 
@@ -27,6 +28,7 @@ export class MemberService {
         "zipCode": "06830"
       },
       { 
+        "id": 2,
         "firstName": "Ivan", 
         "lastName": "Risley", 
         "dateOfBirth": "09 Aug 1958", 
@@ -37,6 +39,7 @@ export class MemberService {
         "zipCode": "04346" 
       }, 
       { 
+        "id": 3,
         "firstName": "Rikki", 
         "lastName": "Paquette", 
         "dateOfBirth": "18 Sep 1963", 
