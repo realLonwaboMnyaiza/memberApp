@@ -74,7 +74,7 @@ namespace app.Controllers.Tests
                 var result = await memberController.GetMember(memberId);
 
                 // assert.
-                Assert.That(((result as OkObjectResult)?.Value as MemberDto).FirstName,
+                Assert.That(((result as OkObjectResult)?.Value as MemberDto)?.FirstName,
                     Is.EqualTo(member.FirstName));
             }
 
@@ -143,7 +143,7 @@ namespace app.Controllers.Tests
                 var mapper = new Mock<IMapper>();
                 mapper.Setup(m => m.Map<List<MemberDto>>(members))
                     .Returns(ConvertMemberToDto(members).ToList());
-                
+
                 var memberController = Create(
                     repository: repository.Object,
                     mapper: mapper.Object);
@@ -156,12 +156,11 @@ namespace app.Controllers.Tests
                 var firstMember = members.OrderBy(m => m.Id).FirstOrDefault();
 
                 // assert.
-                Assert.That(firstMemberDto?.FirstName, 
+                Assert.That(firstMemberDto?.FirstName,
                     Is.EqualTo(firstMember?.FirstName));
             }
 
             [Test]
-            [Explicit("WIP")]
             public void ShouldWriteToLogWhenExceptionOccurs()
             {
                 // arrange.
@@ -179,11 +178,13 @@ namespace app.Controllers.Tests
                 memberController.GetMembers();
 
                 // assert.
-                // fix: not too sure why this is not working,
-                // -> moq docx is down :(
                 log.Verify(
-                    m => m.LogInformation(
-                    It.IsAny<string>()),
+                    m => m.Log(
+                        It.IsAny<LogLevel>(),
+                        It.IsAny<EventId>(),
+                        It.IsAny<It.IsAnyType>(),
+                        It.IsAny<Exception>(),
+                        (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()),
                     Times.Once());
             }
         }
@@ -204,7 +205,7 @@ namespace app.Controllers.Tests
 
             return memberDto;
         }
- private static IEnumerable<MemberDto> ConvertMemberToDto(IEnumerable<Member> members)
+        private static IEnumerable<MemberDto> ConvertMemberToDto(IEnumerable<Member> members)
         {
             var memberDtos = new List<MemberDto>();
             foreach (var member in members)
@@ -231,7 +232,7 @@ namespace app.Controllers.Tests
         {
             var members = new List<Member>();
 
-            for (var i = 1; i <= numberOfMembers; i++) 
+            for (var i = 1; i <= numberOfMembers; i++)
             {
                 var member = CreateMember(id: i);
                 members.Add(member);
@@ -257,7 +258,7 @@ namespace app.Controllers.Tests
                 Id = id ?? random.Next(),
                 FirstName = firstname ?? random.Next().ToString(),
                 LastName = lastname ?? random.Next().ToString(),
-                DateOfBirth = dateOfBirth ?? DateTime.Now.AddYears(- new Random().Next(100)),
+                DateOfBirth = dateOfBirth ?? DateTime.Now.AddYears(-new Random().Next(100)),
                 Email = email ?? random.Next().ToString(),
                 Address = address ?? random.Next().ToString(),
                 City = city ?? random.Next().ToString(),
