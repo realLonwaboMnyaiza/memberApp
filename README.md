@@ -45,10 +45,10 @@ to verify that the container is running:
 ### TODO List:
 
 - details view of members.
-- link fe to api.
 
 #### Bonus List:
 
 - add front end tests.
 - create a member details page (FE).
 - backend filtering and pagination.
+- auth
