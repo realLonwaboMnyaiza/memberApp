@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Member } from 'src/model/Member';
 
 @Injectable({
   providedIn: 'root'
@@ -10,46 +11,9 @@ export class MemberService {
 
   getMembers() {
     // todo: create an .env file to store the base url for endpoints.
-    // const endpoint = '/api/v1/members';
-    // return this.http.get(endpoint);
-    // todo: getting cors issues
-    // -> dummy the data out 
-    // -> implement rendering of mock members in fe then go fix cors issues when fe can display data.
-    const members = [
-      {
-        "id": 1,
-        "firstName": "Emma", 
-        "lastName": "Dunham", 
-        "dateOfBirth": "31 Mar 1980", 
-        "email": "emma.dunham@vtgrafix.gov", 
-        "address": "76 Sherman Road", 
-        "city": "Hastings", 
-        "country": "Aruba", 
-        "zipCode": "06830"
-      },
-      { 
-        "id": 2,
-        "firstName": "Ivan", 
-        "lastName": "Risley", 
-        "dateOfBirth": "09 Aug 1958", 
-        "email": "ivan.risley@nitrosystems.co", 
-        "address": "18 Hartswood Road", 
-        "city": "Stanford", 
-        "country": "Algeria", 
-        "zipCode": "04346" 
-      }, 
-      { 
-        "id": 3,
-        "firstName": "Rikki", 
-        "lastName": "Paquette", 
-        "dateOfBirth": "18 Sep 1963", 
-        "email": "rikki.paquette@anaplex.xyz", 
-        "address": "56 Canal Street", 
-        "city": "London", 
-        "country": "Iceland", 
-        "zipCode": "16935" 
-      }, 
-    ];
-    return members;
+    const domain = 'https://localhost:7241';
+    const resource = '/api/v1/members';
+    const endpoint = `${domain}${resource}`;
+    return this.http.get<Member[]>(endpoint);
   }
 }

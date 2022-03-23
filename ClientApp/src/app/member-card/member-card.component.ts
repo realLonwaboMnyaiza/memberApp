@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Member } from 'src/model/Member';
 
 @Component({
   selector: 'member-card',
@@ -7,10 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MemberCardComponent implements OnInit {
 
-  @Input() member: any;
+  // todo: can ini this obj or turn off strictPropertyInitialization.
+  // -> rn easier to use non-null assertion.
+  @Input() member!: Member;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.member.dateOfBirth = 
+          new Date(this.member.dateOfBirth)
+          .toLocaleDateString();
   }
 }
