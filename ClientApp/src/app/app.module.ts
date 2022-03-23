@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MemberCardComponent } from './member-card/member-card.component';
 import { MemberService } from 'src/service/member.service';
 import { MemberDetailsComponent } from './member-details/member-details.component';
@@ -19,7 +18,6 @@ import { AboutComponent } from './about/about.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent,
     MemberCardComponent,
     MemberDetailsComponent,
     MembersComponent,
@@ -33,7 +31,6 @@ import { AboutComponent } from './about/about.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'members', component: MembersComponent},
       { path: 'about', component: AboutComponent},
-      { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
   providers: [
