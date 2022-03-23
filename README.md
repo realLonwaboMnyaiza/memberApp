@@ -50,6 +50,5 @@ to verify that the container is running:
 #### Bonus List:
 
 - add front end tests.
-- finish api test for get member.
 - create a member details page (FE).
 - backend filtering and pagination.
