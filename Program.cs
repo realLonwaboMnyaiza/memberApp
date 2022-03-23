@@ -1,5 +1,6 @@
 using app.DAL;
 using Microsoft.EntityFrameworkCore;
+using app.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,14 @@ builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(Configuration.CorsPolicy.ToString(),
+        cors => cors.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,6 +34,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseCors(Configuration.CorsPolicy.ToString());
 
 app.MapControllerRoute(
     name: "default",
