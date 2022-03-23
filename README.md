@@ -42,13 +42,20 @@ if you have docker installed the database can be contianerized by running the fo
 to verify that the container is running:
 `docker ps`
 
-### TODO List:
+## Testing.
 
-- details view of members.
+### Frontend test
+
+- ng test
+
+### Backend test
+
+- use test runner in you ide.
+
+### TODO List:
 
 #### Bonus List:
 
 - add front end tests.
-- create a member details page (FE).
 - backend filtering and pagination.
 - auth
