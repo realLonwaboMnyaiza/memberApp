@@ -8,8 +8,8 @@ import { MemberService } from 'src/service/member.service';
   styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
-  private members : Member[] = [];
-  public membersFilter : Member[] = [];
+  private members : Member[];
+  public membersFilter : Member[];
   
   constructor(private memberService: MemberService) {   }
 
@@ -19,15 +19,14 @@ export class MembersComponent implements OnInit {
         .subscribe((data: Member[]) => {
           this.members = data;
           this.membersFilter = this.members;
-          console.log(this.members)
         }, error => {
           // todo: can use global error handing, I think that uses an interceptor.
-          console.error(error)
+          console.error(error);
         });
   }
 
   filter(searchTerm: string): void {
-    // todo: should work, but need to find a cleaner way of doing this. 
+    // note: should work, but need to find a cleaner way of doing this. 
     if (searchTerm) {
       this.membersFilter = this.members.filter(m => this.filterByNameAndSurname(m, searchTerm));
     } else {

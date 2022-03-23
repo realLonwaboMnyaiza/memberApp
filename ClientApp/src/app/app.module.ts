@@ -12,6 +12,7 @@ import { MemberService } from 'src/service/member.service';
 import { MemberDetailsComponent } from './member-details/member-details.component';
 import { MembersComponent } from './members/members.component';
 import { AboutComponent } from './about/about.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutComponent } from './about/about.component';
     MemberCardComponent,
     MemberDetailsComponent,
     MembersComponent,
-    AboutComponent
+    AboutComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,7 +32,9 @@ import { AboutComponent } from './about/about.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'members', component: MembersComponent},
+      { path: 'members/:id', component: MemberDetailsComponent},
       { path: 'about', component: AboutComponent},
+      { path: '**', component: PageNotFoundComponent},
     ])
   ],
   providers: [

@@ -1,4 +1,4 @@
-<div class="flip-card">
+<div class="flip-card" (click)="displayMemberDetails()">
     <div class="flip-card-inner">
         <div class="flip-card-front">
             <h1 class="name">{{ member.firstName }} {{ member.lastName }}</h1>
@@ -12,7 +12,7 @@
 
             <section class="date-of-birth">
                 <h3>Date of Birth:</h3>
-                <p>{{ member.dateOfBirth }}</p>
+                <p>{{ member.dateOfBirth | date:'dd/MM/yyyy' }}</p>
             </section>
 
             <section class="address">

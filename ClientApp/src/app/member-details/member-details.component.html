@@ -1,11 +1,43 @@
 <h1>Member</h1>
-<form>
+<form *ngIf="!isLoading">
     <div class="form-group">
         <label for="firstname">First Name</label>
-        <input type="text" id="firstname" class="form-control">
+        <input type="text" id="firstname" class="form-control" [value]="member.firstName" readonly>
     </div>
+    <br>
     <div class="form-group">
         <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" class="form-control">
+        <input type="text" id="lastname" class="form-control" [value]="member.lastName" readonly>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="text" id="dateOfBirt" class="form-control" [value]="member.dateOfBirth | date:'dd/MM/yyyy'"
+            readonly>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control" [value]="member.email" readonly>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" class="form-control" [value]="member.address" readonly>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" class="form-control" [value]="member.city" readonly>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" id="country" class="form-control" [value]="member.country" readonly>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="zipCode">Zip Code</label>
+        <input type="text" id="zipCode" class="form-control" [value]="member.zipCode" readonly>
     </div>
 </form>

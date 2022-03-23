@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Member } from 'src/model/Member';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'member-card',
@@ -7,16 +8,14 @@ import { Member } from 'src/model/Member';
   styleUrls: ['./member-card.component.css']
 })
 export class MemberCardComponent implements OnInit {
+  @Input() member: Member;
 
-  // todo: can ini this obj or turn off strictPropertyInitialization.
-  // -> rn easier to use non-null assertion.
-  @Input() member!: Member;
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.member.dateOfBirth = 
-          new Date(this.member.dateOfBirth)
-          .toLocaleDateString();
+  }
+
+  displayMemberDetails() {
+    this.router.navigateByUrl(`/members/${this.member.id}`);
   }
 }
